@@ -82,6 +82,21 @@
   font-weight: 400 !important;
   font-family: "Montserrat", serif;
   padding-top: 10px;
+  line-height: 32px;
+}
+.content-box-features-list {
+  height: 450px;
+}
+.content-box-features-list .feature-list-track-content-box {
+  width: 50%;
+  padding: 40px 0px;
+}
+.content-box-features-list .image {
+  width: 50%;
+}
+.content-box-features-list .image img {
+  width: 100%;
+  object-fit: cover;
 }
 .feature-list-track-content-box a {
   text-decoration: none;
@@ -119,7 +134,7 @@ li {
   list-style: none;
 }
 .mode-hight {
-  height: 200px;
+  height: 300px;
 }
 
 /* Default opacity for inactive items */

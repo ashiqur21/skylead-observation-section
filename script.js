@@ -1,7 +1,9 @@
 // Select all feature list items and the image element
 const featureLists = document.querySelectorAll(".feature-list-track");
 const featureImage = document.querySelector(".show-feature-image img"); // Image to change dynamically
-const featureContentBoxes = document.querySelectorAll(".content-box-features-list"); // Content boxes related to features
+const featureContentBoxes = document.querySelectorAll(
+  ".content-box-features-list"
+); // Content boxes related to features
 
 // Define images for each feature (ensure these are in order)
 const featureImages = [
@@ -25,9 +27,13 @@ window.addEventListener("load", () => {
 });
 
 // Intersection Observer options
+let screenWidth = window.innerWidth;
+console.log(screenWidth);
 const options = {
   root: null, // Observe the viewport
-  rootMargin: "-20% 0px -80% 0px", // Trigger when the section reaches 40% of the screen
+  rootMargin: `${
+    screenWidth >= 520 ? "-20% 0px -80% 0px" : "-40% 0px -60% 0px"
+  }`, // Trigger when the section reaches 40% of the screen
   threshold: 0, // Trigger as soon as the element enters/exits the rootMargin
 };
 
@@ -55,6 +61,13 @@ const observer = new IntersectionObserver((entries) => {
       featureLists.forEach((list, idx) => {
         list.style.opacity =
           idx === index ? "var(--active_opacity)" : "var(--default_opacity)";
+        list.style.color = idx === index ? "#fca739" : "#0080ff";
+
+        if (idx === index) {
+          list.classList.add("active");
+        } else {
+          list.classList.remove("active");
+        }
       });
     } else if (entry.boundingClientRect.top > 0) {
       // Handle reverse scrolling to activate items
@@ -64,6 +77,13 @@ const observer = new IntersectionObserver((entries) => {
       featureLists.forEach((list, idx) => {
         list.style.opacity =
           idx === index ? "var(--active_opacity)" : "var(--default_opacity)";
+        list.style.color = idx === index ? "#fca739" : "#0080ff";
+
+        if (idx === index) {
+          list.classList.add("active");
+        } else {
+          list.classList.remove("active");
+        }
       });
 
       // Set the image source for the active list item

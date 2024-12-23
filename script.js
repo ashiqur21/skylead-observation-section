@@ -24,6 +24,29 @@ function preloadImages(imageUrls) {
 // Preload images on page load
 window.addEventListener("load", () => {
   preloadImages(featureImages);
+
+  // Make the first list item active initially
+  if (featureLists.length > 0) {
+    featureLists[0].classList.add("active"); // Add the "active" class to the first item
+    featureImage.src = featureImages[0]; // Set the initial image
+    const selectedId = featureLists[0].getAttribute("data-id");
+
+    // Display the corresponding content box and hide others
+    featureContentBoxes.forEach((contentBox) => {
+      if (contentBox.id === selectedId) {
+        contentBox.style.display = "flex";
+      } else {
+        contentBox.style.display = "none";
+      }
+    });
+
+    // Set styles for the first list item
+    featureLists.forEach((list, index) => {
+      list.style.opacity =
+        index === 0 ? "var(--active_opacity)" : "var(--default_opacity)";
+      list.style.color = index === 0 ? "#fca739" : "#0080ff";
+    });
+  }
 });
 
 // Intersection Observer options
@@ -32,7 +55,7 @@ console.log(screenWidth);
 const options = {
   root: null, // Observe the viewport
   rootMargin: `${
-    screenWidth >= 520 ? "-20% 0px -80% 0px" : "-30% 0px -70% 0px"
+    screenWidth >= 550 ? "-20% 0px -80% 0px" : "-30% 0px -70% 0px"
   }`, // Trigger when the section reaches 40% of the screen
   threshold: 0, // Trigger as soon as the element enters/exits the rootMargin
 };
@@ -67,35 +90,6 @@ const observer = new IntersectionObserver((entries) => {
           list.classList.add("active");
         } else {
           list.classList.remove("active");
-        }
-      });
-    } else if (entry.boundingClientRect.top > 0) {
-      // Handle reverse scrolling to activate items
-      const index = Array.from(featureLists).indexOf(entry.target);
-
-      // Update opacity of the list items
-      featureLists.forEach((list, idx) => {
-        list.style.opacity =
-          idx === index ? "var(--active_opacity)" : "var(--default_opacity)";
-        list.style.color = idx === index ? "#fca739" : "#0080ff";
-
-        if (idx === index) {
-          list.classList.add("active");
-        } else {
-          list.classList.remove("active");
-        }
-      });
-
-      // Set the image source for the active list item
-      featureImage.src = featureImages[index];
-
-      // Show the corresponding content box using data-id and hide others
-      const selectedId = entry.target.getAttribute("data-id");
-      featureContentBoxes.forEach((contentBox) => {
-        if (contentBox.id === selectedId) {
-          contentBox.style.display = "flex"; // Show the corresponding content box
-        } else {
-          contentBox.style.display = "none"; // Hide other content boxes
         }
       });
     }

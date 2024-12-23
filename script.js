@@ -7,10 +7,10 @@ const featureContentBoxes = document.querySelectorAll(
 
 // Define images for each feature (ensure these are in order)
 const featureImages = [
-  "./img/EmailDiscovery.png",
-  "./img/imageLinkidIn.png",
-  "./img/personalization.png",
-  "./img/UnlimitedAutomation.png",
+  "https://storage.googleapis.com/msgsndr/lS8bQAj92DtBFQ9HTnEd/media/6768fd942fc1954c4b4ba1f7.png",
+  "https://storage.googleapis.com/msgsndr/lS8bQAj92DtBFQ9HTnEd/media/6768fd94fb63bca0626cf214.png",
+  "https://storage.googleapis.com/msgsndr/lS8bQAj92DtBFQ9HTnEd/media/6768fd940bcca00927801f2e.png",
+  "https://storage.googleapis.com/msgsndr/lS8bQAj92DtBFQ9HTnEd/media/6768fd940bcca0c147801f2d.png",
 ];
 
 // Preload all feature images

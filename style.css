@@ -20,6 +20,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   padding: 80px;
+  width: 100%;
   font-family: "Manrope", serif;
 }
 .notice-container {

@@ -240,4 +240,8 @@ li {
   .feature-list-track-content-box p {
     font-size: 16px;
   }
+  .content-box-features-list .image img{
+    height: 240px;
+    object-fit: contain !important;
+  }
 }

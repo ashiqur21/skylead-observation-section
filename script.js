@@ -32,7 +32,7 @@ console.log(screenWidth);
 const options = {
   root: null, // Observe the viewport
   rootMargin: `${
-    screenWidth >= 520 ? "-20% 0px -80% 0px" : "-40% 0px -60% 0px"
+    screenWidth >= 520 ? "-20% 0px -80% 0px" : "-30% 0px -70% 0px"
   }`, // Trigger when the section reaches 40% of the screen
   threshold: 0, // Trigger as soon as the element enters/exits the rootMargin
 };

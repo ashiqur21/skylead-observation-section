@@ -279,4 +279,30 @@ li {
   .feature-list-track.active::before {
     width: 100%;
   }
+  .show-feature-image{
+    height: 100%;
+  }
+  .section-bg{
+    padding: 0 10px;
+  }
+
+}
+@media screen and (min-width: 551px) and (max-width: 800px){
+  .show-feature-image{
+    height: 100%;
+  }
+  .content-box-features-list {
+    flex-direction: column-reverse;
+    height: 100%;
+  }
+  .section-bg{
+    padding: 0 10px;
+  }
+  .content-box-features-list .feature-list-track-content-box,
+  .content-box-features-list .image{
+    width: 100%;
+  }
+  .content-box-features-list{
+    justify-content: center;
+  }
 }
